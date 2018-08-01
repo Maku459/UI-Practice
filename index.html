@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="./static/style.css">
+  <title>test</title>
+</head>
+
+<body>
+  <header class="MasterHeader">
+    <p>タグ：処置</p>
+    <div>
+      <ul>
+        <li class="MasterBack__Icon"></li>
+        <li class="MasterBack__Ttl">戻る</li>
+      </ul>
+    </div>
+  </header>
+  <div id="container">
+    <div class="RedBar">
+      <p class="RedBar__Sort">絞り込み/並べ替え</p>
+      <p class="RedBar__Close">閉じる</p>
+    </div>
+    <div class="GrayBar TagBar">
+      <img src="static/img/tag.svg" alt="">
+      <p>注目のタグ</p>
+    </div>
+    <div class="tags-container">
+      <div class="tags" v-for="tag in tags" v-bind:key="tag.name">
+        <ul>
+          <li class="tags-status" v-bind:class="{checked: tag.status == 1,plus: tag.status == 2,more: tag.status == 3}"></li>
+          <li class="tags-name" >{{ tag.name }}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="GrayBar SortBar">
+      <img src="static/img/sort.svg" alt="">
+      <p>ニュース表示順</p>
+    </div>
+    <div class="sort-container">
+      <a class="sortbuttons" v-for="button in sortbuttons" v-bind:key="button.name" v-bind:href="button.url">
+        <p>{{ button.name }}</p>
+      </a>
+    </div>
+  </div>
+  <!-- built files will be auto injected -->
+</body>
+
+</html>
